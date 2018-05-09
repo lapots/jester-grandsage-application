@@ -69,17 +69,17 @@ resource "aws_api_gateway_integration" "jester_lamda_function" {
   uri                     = "${aws_lambda_function.jester.invoke_arn}"
 }
 
-resource "aws_api_gateway_method" "jester_lamda_function_root" {
+resource "aws_api_gateway_method" "jester_lambda_function_root" {
   rest_api_id   = "${aws_api_gateway_rest_api.jester_rest_api.id}"
   resource_id   = "${aws_api_gateway_rest_api.jester_rest_api.root_resource_id}"
   http_method   = "ANY"
   authorization = "NONE"
 }
 
-resource "aws_api_gateway_integration" "lambda_root" {
+resource "aws_api_gateway_integration" "jester_lambda_function_root" {
   rest_api_id = "${aws_api_gateway_rest_api.jester_rest_api.id}"
-  resource_id = "${aws_api_gateway_method.jester_lamda_function_root.resource_id}"
-  http_method = "${aws_api_gateway_method.jester_lamda_function_root.http_method}"
+  resource_id = "${aws_api_gateway_method.jester_lambda_function_root.resource_id}"
+  http_method = "${aws_api_gateway_method.jester_lambda_function_root.http_method}"
 
   integration_http_method = "POST"
   type = "AWS_PROXY"
