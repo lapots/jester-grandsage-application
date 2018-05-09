@@ -28,7 +28,7 @@ dependencies {
     compile('ch.qos.logback:logback-core:1.2.3')
 
     // aws dependencies
-    compile('com.amazonaws:aws-lambda-java-core:1.2.0')
+    compile('com.amazonaws.serverless:aws-serverless-java-container-jersey:1.1')
 }
 
 checkstyle {
