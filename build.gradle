@@ -1,14 +1,6 @@
 buildscript {
-    ext {
-        sonarQubePluginVersion = '2.6.2'
-        coverallsPluginVersion = '2.8.2'
-    }
     repositories {
         mavenCentral()
-    }
-    dependencies {
-        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${sonarQubePluginVersion}"
-        classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:${coverallsPluginVersion}"
     }
 }
 
@@ -19,8 +11,6 @@ apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 apply plugin: 'pmd'
-apply plugin: 'org.sonarqube'
-apply plugin: 'com.github.kt3k.coveralls'
 
 group = 'com.lapots.breed.jester'
 version = '1.0'
@@ -39,7 +29,6 @@ dependencies {
 
     // aws dependencies
     compile('com.amazonaws:aws-lambda-java-core:1.2.0')
-    compile('com.amazonaws:aws-lambda-java-events:2.1.0')
 }
 
 checkstyle {
