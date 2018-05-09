@@ -15,8 +15,8 @@ provider "aws" {
   secret_key = "${var.aws_secret_access_key}"
 }
 
-resource "aws_iam_role" "iam_for_lambda" {
-  name = "iam_for_lambda"
+resource "aws_iam_role" "iam_for_lambda_jester" {
+  name = "iam_for_lambda_jester"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -45,7 +45,7 @@ EOF
 resource "aws_lambda_function" "jester" {
   filename = "build/libs/jester-lambda-function-1.0.jar"
   function_name = "jester_lambda_function"
-  role = "${aws_iam_role.iam_for_lambda.arn}"
+  role = "${aws_iam_role.iam_for_lambda_jester.arn}"
   handler = "com.lapots.breed.jester.XXXX"
   runtime = "java8"
 }
