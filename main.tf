@@ -46,6 +46,6 @@ resource "aws_lambda_function" "jester" {
   filename = "build/libs/jester-lambda-function-1.0.jar"
   function_name = "jester_lambda_function"
   role = "${aws_iam_role.iam_for_lambda_jester.arn}"
-  handler = "com.lapots.breed.jester.XXXX"
+  handler = "com.lapots.breed.jester.JesterNameGenerationHandler"
   runtime = "java8"
 }
