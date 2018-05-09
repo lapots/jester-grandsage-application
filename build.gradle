@@ -29,6 +29,7 @@ dependencies {
 
     // aws dependencies
     compile('com.amazonaws.serverless:aws-serverless-java-container-jersey:1.1')
+    compile('com.amazonaws:aws-lambda-java-log4j:1.0.0')
 }
 
 checkstyle {
