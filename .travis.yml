@@ -11,3 +11,6 @@ after_success:
 - rm -f terraform.zip
 - terraform init -backend-config="access_key=$aws_access_key_id" -backend-config="secret_key=$aws_secret_access_key"
 - terraform apply -var "aws_access_key_id=$aws_access_key_id" -var "aws_secret_access_key=$aws_secret_access_key" --auto-approve
+env:
+  global:
+    secure: JflGFdemwXbVw5dxRxyevSeGzhPjOBYJXKTgydacXNeHDN73+TNMEfeuWSDrZ4HHCb+SRh5hJBlZe+Njm5gy3cPO5Z8Cz9Yi2UpFd15ibbK3IJ+1073AkEfsxl96cYVfk4Lf2N6VDWqlC3jxScLOR5Z/hNN+T+Tepmt72ElA/NFJ32kVoJ+4SCW5MVOFrKSa4QdZnFih8N4PJGAGZ1WDtw6bDqBrQ5HNmtfMbinvYerXlF2K6ZEgfN3BnqUiH3O8pylkcFl/NRbUfL/5xRdKEVEJyQHRWD5nH6Ff8NX9U1FxT9adPckHLc5QXXeiEDr2wEOUoaFtEsu+UFrc9iXpBhddpf+GGa1T0qOBMJp5y4yePiOa+hYUORbiYusHDdx5OGWke1shpqa+e3xxnWGPUg1KcWUQE8hEggJXDPmGnHzeVxonTCI3cBztl/PApQKjh7Ji8QWdTyqnxwUmTT1Iw1cu7KlwW6YxLRYALMEdzTAZ4NMvi6REQfUdUFouH7TL14fSt3PhqZMrIrm5VSfBVjR5VvqCcuN3aS3V7jOOk+c+QI6PUOyp+2f5GHQw+3aepxiRThxjkgvR+saL3slSt8qW52X6JBGc2Oo8Hctk8lojmZ/SlAxKtyQ14IKeuoK42O3ht0AClCRBgNzvrEd4VctsZaNQbqGY31snUAKbMUs=
