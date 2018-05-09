@@ -1,0 +1,13 @@
+language: java
+jdk: oraclejdk8
+notifications:
+  email:
+    on_failure: never
+    on_success: never
+after_success:
+- curl -fSL "https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip" -o terraform.zip
+- sudo unzip terraform.zip -d /opt/terraform
+- sudo ln -s /opt/terraform/terraform /usr/bin/terraform
+- rm -f terraform.zip
+- terraform init -backend-config="access_key=$aws_access_key_id" -backend-config="secret_key=$aws_secret_access_key"
+- terraform apply -var "aws_access_key_id=$aws_access_key_id" -var "aws_secret_access_key=$aws_secret_access_key" --auto-approve

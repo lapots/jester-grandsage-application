@@ -1,0 +1,74 @@
+buildscript {
+    ext {
+        sonarQubePluginVersion = '2.6.2'
+        coverallsPluginVersion = '2.8.2'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${sonarQubePluginVersion}"
+        classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:${coverallsPluginVersion}"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'jacoco'
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'org.sonarqube'
+apply plugin: 'com.github.kt3k.coveralls'
+
+group = 'com.lapots.breed.jester'
+version = '1.0'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile('com.google.code.findbugs:jsr305:3.0.2') // weird
+
+    compile('ch.qos.logback:logback-classic:1.2.3')
+    compile('ch.qos.logback:logback-core:1.2.3')
+
+    // aws dependencies
+    compile('com.amazonaws:aws-lambda-java-core:1.2.0')
+    compile('com.amazonaws:aws-lambda-java-events:2.1.0')
+}
+
+checkstyle {
+    configFile = file('sun_checks.xml')
+}
+
+test {
+    finalizedBy jacocoTestReport
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+findbugs {
+    sourceSets = [sourceSets.main]
+}
+
+tasks.withType(Pmd) {
+    reports {
+        html.enabled = true
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+    }
+}
