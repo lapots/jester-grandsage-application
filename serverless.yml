@@ -1,0 +1,19 @@
+service: naming-service
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-1
+  memorySize: 128
+  timeout: 30
+
+functions:
+  generateName:
+    handler: lambdaHandlers.generateName
+    events:
+      - http:
+          path: jester/name/generate
+          method: get
+          cors:
+            origins:
+              - '*'

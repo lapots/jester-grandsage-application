@@ -26,3 +26,8 @@ nbdist/
 .nb-gradle/
 
 .terraform
+
+.private
+.serverless
+env.yml
+node_modules

@@ -1,0 +1,18 @@
+{
+  "name": "jester-lambda-function",
+  "version": "1.0.0",
+  "description": "Lambda function for name generation",
+  "main": "lambdaHandlers.js",
+  "scripts": {
+    "deploy": "serverless deploy --stage dev"
+  },
+  "author": {
+    "name": "lapots"
+  },
+  "devDependencies": {
+    "serverless": "^1.27.0"
+  },
+  "dependencies": {
+    "envelope": "^1.0.7"
+  }
+}
