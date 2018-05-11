@@ -1,26 +1,24 @@
 const NamingService = require('./NamingService');
 
-const responseHeaders = {
-    'Content-Type':'application/json',
-    'Access-Control-Allow-Origin' : '*',
-    'Access-Control-Allow-Credentials' : true
-};
-
 const responses = {
-    success: (data={}, code=200) => {
+    success: (data={}) => {
         return {
-            'statusCode': code,
-            'headers': responseHeaders,
-            'body': JSON.stringify(data),
-            'isBase64Encoded': false
+            "statusCode": 200,
+            "headers": {
+                "Access-Control-Allow-Origin" : "*",
+                "Access-Control-Allow-Credentials" : true
+            },
+            "body": JSON.stringify(data)
         }
     },
     error: (error) => {
         return {
-            'statusCode': error.code || 500,
-            'headers': responseHeaders,
-            'body': JSON.stringify(error),
-            'isBase64Encoded': false
+            "statusCode": error.code || 500,
+            "headers": {
+                "Access-Control-Allow-Origin" : "*",
+                "Access-Control-Allow-Credentials" : true
+            },
+            "body": JSON.stringify(error)
         }
     }
 };
