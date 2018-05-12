@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '8'
+cache:
+  directories:
+  - node_modules
+script:
+- npm install -g serverless
+- sls deploy
+env:
+  global:
+    secure: g0pH49qPTj4vu8OlkX4OcPYMhSH3z5XJH80gyp+qGar60zk8cI+MvRTBcVaQZX8xcGqNYDi+IhY7pml+n7SSFptAb9l8gIy+ffT0GEGAh4YSvfv/Gdn+jyXxONKmQtr2azE1oNwXVzHVCkh9iwAtk23STtTZLXDpoce4CXDknaIPJeMUK99BngpDULtN2DHOFJLtas/DDabYuUGHGHj2LKm/TD25T3HG6K0ptge3HFBDKqcX0MwgMmt7v7nyPhpL/f4YYcdWo23SyHUk8Au6PkxTUFD2kAAmFsQvXEZvCMK0EsbmEQMQpr2qefm76Ha83LrqjBn0F6LNNRFS/SQ7sKE0q5UHKmlsIMdgEHIjyFxvOm218qG1ck137zjVHqUHlXh8rTdf+50ivPE/tnoPLjPSze3QlPHGBmLuD6vlzDqAwkytwPVbCCZl7xjUnXAF3qvlDIvOb35oD1IbRnydpidwfLNIy8+WpoLKczOKNdJHJJBe/jNY43+BzTmWfmF020DBo7xEKu5ZjdZNFD9mHcSCbJOG4yIovNnvlTAbsxFLkffLLRvuiZ2ltojf0AHHeaniGGbA5nuprQS7Cz7O00NTOQY8zkQm1ivmzKeSa3YzfST2J2f578zQCro3yYP0I+ouiG4FuhAl3GucW32KYk4p+1I9Dup6o+Ow07HHJKk=
