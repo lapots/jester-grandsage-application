@@ -1,4 +1,4 @@
-const NamingService = require('./NamingService');
+const NamingService = require('./services/NamingService');
 
 const responses = {
     success: (data={}) => {
@@ -24,10 +24,10 @@ const responses = {
 };
 
 module.exports = {
-    generateName: (event, context, callback) => {
+    generateAllianceName: (event, context, callback) => {
         context.callbackWaitsForEmptyEventLoop = false;
         const namingService = new NamingService();
-        const generatedName = namingService.generateName();
+        const generatedName = namingService.generateGreekAllianceName();
         callback(null, responses.success(generatedName));
     }
 };

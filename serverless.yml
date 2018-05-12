@@ -9,10 +9,10 @@ provider:
 
 functions:
   generateName:
-    handler: lambdaHandlers.generateName
+    handler: restHandler.generateAllianceName
     events:
       - http:
-          path: jester/name/generate
+          path: name/alliance/generate
           method: get
           cors:
             origins:
