@@ -27,12 +27,7 @@ module.exports = {
     generateName: (event, context, callback) => {
         context.callbackWaitsForEmptyEventLoop = false;
         const namingService = new NamingService();
-        namingService.generateName()
-            .then(name => {
-                callback(null, responses.success(name))
-            })
-            .catch(error => {
-                callback(null, responses.error(error))
-            })
+        const generatedName = namingService.generateName();
+        callback(null, responses.success(generatedName));
     }
 };
