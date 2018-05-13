@@ -6,6 +6,12 @@ provider:
   region: eu-west-1
   memorySize: 128
   timeout: 30
+  environmet:
+    RDS_HOST: ''
+    RDS_PORT: ''
+    RDS_DB: ''
+    RDS_LOGIN: ''
+    RDS_PASSWORD: ''
 
 functions:
   generateName:
